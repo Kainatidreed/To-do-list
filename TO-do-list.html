@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+    body{
+        transition: 2s;
+    }
+    
+    .container{
+        text-align: center;
+        margin-top: 5%;
+        border: 4px solid black;
+        height: 500px;
+        width: 550px;
+        
+        background-color: white;
+        margin-left: 10%;
+        border-radius: 20px;
+        padding: 20px;
+        box-shadow: 2px 3px 30px 5px blueviolet;
+    }
+    input{
+        padding: 10px 30px;
+        font-size: 18px;
+        
+        
+    }
+    ul{
+        background-color: black;
+        color: white;
+        padding: 10px 10px;
+        font-size: 18px;
+    }
+    ul i{
+        margin-left: 70px;
+        font-size: 20px;
+        color: white;
+    }
+    h1{
+        font-size: 40px;
+        text-align: center;
+        margin-top: 20px;
+        color: black;
+        
+    }
+    button{
+        background-color: black;
+        color: white;
+        border-radius: 10px;
+        padding: 15px 20px;
+    }
+    p{
+        font-size: 18px;
+        font-weight: bold;
+        word-spacing: 5px;
+    }
+</style>
+<body>
+    <div class="container">
+        <h1>To Do Website</h1>
+        <div class="input">
+            <input type="text" placeholder="Enter your task" id="input">
+            <span><button onclick="fun()">Click</button></span><br><br>
+            <p id="inform"></p>
+            
+            
+        </div>
+        <div class="test">
+            
+
+        </div>
+    </div>
+    <script>
+        var input=document.getElementById("input")
+        var text=document.querySelector(".test")
+        var inform=document.getElementById("inform")
+        function fun()
+        {
+        if(input.value=="")
+        {
+            inform.innerHTML="Please give any task"
+        }
+        else{
+            var element=document.createElement("ul")
+            element.innerHTML=`${input.value}  <i class="fa-solid fa-trash"></i>`
+            text.appendChild(element);
+            input.value="";
+        
+        element.querySelector("i").addEventListener("click",remove)
+        function remove()
+        {
+            element.remove();
+        }
+    }
+}
+function show()
+{
+    var letter="0123456789ABCDEF"
+     var color="#"
+    for(i=0;i<6;i++)
+    {
+        color+=letter[Math.floor(Math.random()*16)]
+    }
+    document.body.style.background=color
+
+}
+setInterval(show,2000)
+    
+        
+        
+    
+    </script>
+</body>
+</html>
